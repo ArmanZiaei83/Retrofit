@@ -9,5 +9,5 @@ public interface JsonPlaceHolderApi {
     //We are Using https://jsonplaceholder.typicode.com/posts URL for Testing, so i used @GET ("posts") based on the URL.
 
     @GET("post")
-    Call<List> getPosts() ;
+    Call<List<Post>> getPosts() ;
  }
