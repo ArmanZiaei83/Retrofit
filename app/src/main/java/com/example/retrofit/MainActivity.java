@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         textViewResult = findViewById(R.id.text_result_view);
 
-          Retrofit retrofit = new Retrofit.Builder()
+          final Retrofit retrofit = new Retrofit.Builder()
                   .baseUrl("https://jsonplaceholder.typicode.com/")
                   .addConverterFactory(GsonConverterFactory.create())
                   .build();
@@ -38,7 +38,18 @@ public class MainActivity extends AppCompatActivity {
                         textViewResult.setText("Code : " + response.code());
                         return;
                     }
-                    
+
+                    List<Post> posts = response.body();
+
+                    for (Post post : posts){
+                        String con = "" ;
+                        con += "ID : " + post.getId() + "\n" ;
+                        con += "UserId : " + post.getUserId() + "\n";
+                        con += "Title : " + post.getText() + "\n";
+                        con += "Body : " + post.getText() + "\n\n";
+
+                        textViewResult.append(con);
+                    }
               }
 
               @Override
