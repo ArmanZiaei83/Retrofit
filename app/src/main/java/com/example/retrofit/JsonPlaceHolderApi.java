@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 public interface JsonPlaceHolderApi {
     //We are Using https://jsonplaceholder.typicode.com/posts URL for Testing, so i used @GET ("posts") based on the URL.
 
-    @GET("post")
+    @GET("posts")
     Call<List<Post>> getPosts() ;
  }
