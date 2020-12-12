@@ -6,7 +6,6 @@ public class Post {
     private  String title ;
 
     @SerializedName("body")
-
     private  String text ;
 
     private int id ;
