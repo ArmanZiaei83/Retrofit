@@ -15,7 +15,9 @@ public interface JsonPlaceHolderApi {
     //We are Using https://jsonplaceholder.typicode.com/posts URL for Testing, so i used @GET ("posts") based on the URL.
 
     @GET("posts")
-    Call<List<Post>> getPosts(@Query("userId")  int Id) ;
+    Call<List<Post>> getPosts(
+            @Query("userId")  int Id
+    );
 
     @GET("posts/{id}/comments")
     Call<List<Comments>> getComments ( @Path("id") int postId);

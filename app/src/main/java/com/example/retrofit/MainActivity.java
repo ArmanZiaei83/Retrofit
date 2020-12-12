@@ -2,6 +2,7 @@ package com.example.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                   .build();
           jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
           getPosts();
-//          getComments();
+          getComments();
       }
       public void getComments(){
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                       con += "Body :" + comments1.getBody() + "\n\n";
 
                       textViewResult.append(con);
+                      textViewResult.setTextColor(Color.BLACK);
                   }
               }
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
       public void getPosts(){
 
-          Call<List<Post>> call = jsonPlaceHolderApi.getPosts(5);
+          Call<List<Post>> call = jsonPlaceHolderApi.getPosts(5 );
           call.enqueue(new Callback<List<Post>>() {
               @Override
               public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
