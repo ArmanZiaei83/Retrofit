@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
                   .addConverterFactory(GsonConverterFactory.create())
                   .build();
           jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-          //getPosts();
-          getComments();
+          getPosts();
+//          getComments();
       }
       public void getComments(){
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
       public void getPosts(){
 
-          Call<List<Post>> call = jsonPlaceHolderApi.getPosts();
+          Call<List<Post>> call = jsonPlaceHolderApi.getPosts(5);
           call.enqueue(new Callback<List<Post>>() {
               @Override
               public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
